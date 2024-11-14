@@ -13,21 +13,21 @@
           $email= $_POST["email"];
           $password= $_POST["psw"];
 
-            // Prepare SQL query to check if the user exists by email
+            /
             $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
-            $stmt->bind_param("s", $email); // Bind email to the query
+            $stmt->bind_param("s", $email);
             $stmt->execute();
-            $result = $stmt->get_result(); // Execute query and get result
+            $result = $stmt->get_result(); 
 
             // Check if a user with this email exists
             if ($result->num_rows > 0) {
                 $user = $result->fetch_assoc(); // Fetch user data
 
-                // Verify if the entered password matches the hashed password in the database
+                
                 if (password_verify($password, $user['psw'])) {
                     
-                    $_SESSION['user_email'] = $user['email']; // Store user email in session
-                    header("Location: dashboard.php"); // Redirect to dashboard if login is successful
+                    $_SESSION['user_email'] = $user['email']; 
+                    header("Location: dashboard.php"); 
                     exit();
                 } else {
                     echo "Invalid password!";
@@ -36,8 +36,8 @@
                 echo "No user found with that email!";
             }
 
-            $stmt->close(); // Close prepared statement
-            $conn->close(); // Close database connection
+            $stmt->close(); 
+            $conn->close(); 
                 }
     
     ?>

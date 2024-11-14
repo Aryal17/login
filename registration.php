@@ -14,20 +14,20 @@
         $pswrepeat = $_POST["pswrepeat"];
 
     
-          // Check for empty fields
+          //  empty fields
           if(empty($email) || empty($psw) || empty($pswrepeat)){
             echo "All fields are required!";
           }
-          // Check if passwords match
+          //  passwords match
           elseif($psw != $pswrepeat){
             echo "Passwords do not match!";
           }
           else {
-            // Hash the password
+            
             $passwordhash = password_hash($psw, PASSWORD_DEFAULT);
             
             
-          // Database connection setup (db.php could be included here)
+          // Database connection setup 
           include 'database.php';
 
           // Insert into database
