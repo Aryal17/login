@@ -13,7 +13,7 @@
           $email= $_POST["email"];
           $password= $_POST["psw"];
 
-            /
+            
             $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -42,9 +42,15 @@
     
     ?>
 
+    <h1>SIGN IN</h1>
+    <p>Please login using </p>
+    <hr>
+
   <div class="login-container">
     <form action="login.php" method="post">
+      <b>Email:</b>
       <input type="email" placeholder="Email" name="email" required><br>
+      <b>Password:</b>
       <input type="password" placeholder="Password" name="psw" required><br>
       <button type="submit">Login</button>
       <p>Not registered yet ! ?  <a href="registration.php" >Register Here</a> </p> 

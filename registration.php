@@ -37,6 +37,7 @@
 
           if($stmt->execute()){
               echo "Registration successful!";
+             
           } else {
               echo "Error";
           }
