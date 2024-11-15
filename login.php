@@ -53,7 +53,7 @@
       <b>Password:</b>
       <input type="password" placeholder="Password" name="psw" required><br>
       <button type="submit">Login</button>
-      <p>Not registered yet ! ?  <a href="registration.php" >Register Here</a> </p> 
+      <p>Not registered yet ! ?  <a href="registration.php" >Signup</a> </p> 
     </form>
   </div>
 
