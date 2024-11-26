@@ -7,6 +7,8 @@
 </head>
 <body>
     <?php
+
+      session_start();
         if($_SERVER["REQUEST_METHOD"]=="POST"){
 
           include "database.php";
@@ -23,6 +25,12 @@
             if ($result->num_rows > 0) {
                 $user = $result->fetch_assoc(); // Fetch user data
 
+                if($user['status']=='inactive'){
+                  $updateStmt = $conn->prepare("UPDATE users SET status = 'active' WHERE email = ?");
+                  $updateStmt->bind_param("s", $email);
+                  $updateStmt->execute();
+                  $updateStmt->close();
+
                 
                 if (password_verify($password, $user['psw'])) {
                     
@@ -32,18 +40,23 @@
                 } else {
                     echo "Invalid password!";
                 }
-            } else {
-                echo "No user found with that email!";
+               } else{
+                echo"Your account is inactive";
+               }
+              } 
+               else {
+                echo "No user found with that email! please signin";
             }
 
             $stmt->close(); 
             $conn->close(); 
-                }
+                
+              }
     
     ?>
 
     <h1>SIGN IN</h1>
-    <p>Please login using </p>
+    
     <hr>
 
   <div class="login-container">

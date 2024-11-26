@@ -30,10 +30,12 @@
           // Database connection setup 
           include 'database.php';
 
+          $status = 'inactive';
+
           // Insert into database
-          $sql = "INSERT INTO users (email, psw) VALUES (?, ?)";
+          $sql = "INSERT INTO users (email, psw , status) VALUES (?,?,?)";
           $stmt = $conn->prepare($sql);
-          $stmt->bind_param("ss", $email, $passwordhash);
+          $stmt->bind_param("sss", $email, $passwordhash , $status);
 
           if($stmt->execute()){
               echo "Registration successful!";
