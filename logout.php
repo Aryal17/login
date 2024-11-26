@@ -10,7 +10,7 @@ if (isset($_SESSION['user_email'])) {
     // Get the logged-in user's email
     $email = $_SESSION['user_email'];
 
-    // Updating to inactive
+    // Updating to inactive from active
     $updateStmt = $conn->prepare("UPDATE users SET status = 'inactive' WHERE email = ?");
     $updateStmt->bind_param("s", $email);
     $updateStmt->execute();
