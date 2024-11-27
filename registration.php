@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($result->num_rows > 0) {
         echo "Email already registered!";
+        echo '<a href="login.php"> Login </a>';
         $stmt->close();
         $conn->close();
         exit();
@@ -43,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $stmt->error;
     }
 
-    // Close database connection
+  
     $stmt->close();
     $conn->close();
 }

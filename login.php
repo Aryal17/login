@@ -16,9 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
-        // Check if the user status is active
+        
         if ($user['status'] == 'active') {
-            // Verify password
+           
             if (password_verify($password, $user['psw'])) {
                 $_SESSION['user_email'] = $user['email'];
                 header("Location: dashboard.php");
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Your account is inactive!";
         }
     } else {
-        echo "No user found with that email!";
+        echo "No user found with that email! please check ";
     }
 
     $stmt->close();
