@@ -61,7 +61,7 @@ $posts = $conn->query("SELECT posts.content, posts.created_at, users.email
             if ($user['status'] == 'active') {
                 echo "<span class='active'>Active🟢</span>";
             } else {
-                echo "<span class='inactive'>Inactive</span>";
+                echo "<span class='inactive'>Inactive🔴</span>";
             }
             ?>
         </div>
@@ -74,7 +74,7 @@ $posts = $conn->query("SELECT posts.content, posts.created_at, users.email
             <button type="submit" class="post-button">Post</button>
         </form>
 
-        <!-- Feed -->
+        
         <div class="feed">
             <h3>Your Feed</h3>
             <?php while ($post = $posts->fetch_assoc()): ?>
