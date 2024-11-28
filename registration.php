@@ -59,11 +59,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
-    <h1>Register</h1>
-    <p>Please fill in the form to create an account:</p>
-    <hr>
+    
 
     <div class="container">
+            <h1>Register</h1>
+            <p>Please fill in the form to create an account:</p>
+            <hr>
         <form action="registration.php" method="POST">
             <b>Email:</b>
             <input type="email" placeholder="Email" name="email" required><br>
@@ -73,8 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" placeholder="Confirm Password" name="confirm_psw" required><br>
             <button type="submit">Register</button>
         </form>
+        <p>Already have an account? <a href="login.php">Login</a></p>
     </div>
 
-    <p>Already have an account? <a href="login.php">Login</a></p>
 </body>
 </html>
