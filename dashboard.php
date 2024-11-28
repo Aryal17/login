@@ -111,6 +111,7 @@ $posts = $conn->query("SELECT posts.id, posts.content, posts.created_at, users.e
                 <div class="feed-item">
                     <strong><?php echo $post['email']; ?></strong>
                     <p><?php echo $post['content']; ?></p>
+                    <small><?php echo date("F j, Y, g:i a", strtotime($post['created_at'])); ?></small>
 
                     <!-- Comment Form -->
                     <form action="dashboard.php" method="post" class="comment-form">
@@ -119,7 +120,6 @@ $posts = $conn->query("SELECT posts.id, posts.content, posts.created_at, users.e
                         <input type="hidden" name="post_id" value="<?php echo $post['id']; ?>" />
                     </form>
 
-                    <small><?php echo date("F j, Y, g:i a", strtotime($post['created_at'])); ?></small>
 
                     <!-- Display Comments for this Post -->
                     <div class="comments">
