@@ -48,9 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Login</h1>
     <div class="container">
-        
+        <h1>Login</h1>
+        <hr>
         <form action="login.php" method="POST">
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="psw" placeholder="Password" required>
