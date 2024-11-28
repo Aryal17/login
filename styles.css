@@ -1,93 +1,123 @@
-/* General Styles */
+/* General Layout and Body */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f7f9fc;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   height: 100vh;
   flex-direction: column;
+  padding: 0 20px; /* Adds padding to the left and right */
+  text-align: center; /* Center text content */
 }
 
-h1, h2, h3 {
+/* Registration and Login Page Container */
+.container {
+  background-color: white;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Heading */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
   color: #333;
-  font-family: 'Roboto', sans-serif;
 }
 
+/* Paragraph Styling */
 p {
   font-size: 1rem;
   color: #555;
-  margin-top: 8px;
 }
 
-/* Container for forms */
-.container {
-  background-color: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-  margin-top: 30px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
+/* Input Fields for Registration and Login */
 input[type="email"],
 input[type="password"] {
-  padding: 12px;
-  margin: 12px 0;
-  border: 1px solid #ccc;
+  width: 85%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
   border-radius: 8px;
+  border: 1px solid #ccc;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  line-height: 1.5;
 }
 
 input[type="email"]:focus,
 input[type="password"]:focus {
-  border: 1px solid #4CAF50;
+  border-color: #4CAF50;
   outline: none;
 }
 
+/* Submit Button for Registration and Login */
 button[type="submit"] {
   background-color: #4CAF50;
   color: white;
   padding: 12px 18px;
+  font-size: 1rem;
   border: none;
   border-radius: 8px;
-  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
   background-color: #45a049;
-  transform: translateY(-3px);
 }
 
 button[type="submit"]:active {
   background-color: #388e3c;
-  transform: translateY(1px);
 }
 
-/* Links */
+/* Link Styling */
 a {
   color: #4CAF50;
   text-decoration: none;
-  font-size: 1rem;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-/* Dashboard styles */
+/* Registration Error Messages */
+.error-message {
+  color: #dc3545;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  button[type="submit"] {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    padding: 8px 12px;
+  }
+}
+
+/* Dashboard Container */
 .dashboard-container {
   background-color: white;
   padding: 35px;
@@ -97,44 +127,36 @@ a:hover {
   max-width: 900px;
   margin: 20px auto;
   text-align: center;
-  overflow: hidden;
   box-sizing: border-box;
-  position: relative; /* To allow the logout button to be positioned within the container */
+  position: relative;
 }
 
-.dashboard-container h2 {
-  font-size: 2.2rem;
+h2 {
+  font-size: 2rem;
   margin-bottom: 15px;
 }
 
 .status {
-  text-align: center;
-  margin-bottom: 25px;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
 }
 
-.status .active {
+.active {
   color: #4CAF50;
   font-weight: bold;
-  font-size: 1.3rem;
 }
 
-.status .inactive {
+.inactive {
   color: #dc3545;
   font-weight: bold;
-  font-size: 1.3rem;
 }
 
-.status span {
-  font-size: 1.2rem;
-}
-
-/* Position the logout button on the top-right corner */
+/* Logout Button */
 .logout-button {
   position: absolute;
   top: 15px;
   right: 15px;
-  display: inline-block;
-  padding: 12px 25px;
+  padding: 12px 20px;
   background-color: #f44336;
   color: white;
   font-size: 1.1rem;
@@ -153,33 +175,63 @@ a:hover {
   transform: translateY(1px);
 }
 
-/* Feed Styles */
-.feed {
-  margin-top: 30px;
-  padding: 0 20px;  /* Add padding to the feed container */
-  overflow-y: auto;  /* Allow scrolling if the feed is too long */
-  max-height: 500px;  /* Set a maximum height to prevent feed overflow */
-
+/* Post Form Styling */
+.status-form {
+  margin-top: 20px;
 }
 
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: none;
+  height: 40px;
+}
 
+/* Submit Button */
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 18px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+button[type="submit"]:active {
+  background-color: #388e3c;
+}
+
+/* Feed Section Styling */
+.feed {
+  margin-top: 30px;
+  overflow-y: auto; /* Ensure feed items are scrollable if content overflows */
+  max-height: 500px; /* Limit the height of the feed section to fit content within the screen */
+  padding: 0 10px; /* Add padding inside the feed */
+}
 
 .feed h3 {
   font-size: 1.8rem;
-  color: #333;
   margin-bottom: 20px;
 }
 
 .feed-item {
   background-color: #ffffff;
-  padding: 15px;
-  margin-bottom: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
   border-radius: 8px;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 100%; /* Ensure feed items take up all available width without overflowing */
-  box-sizing: border-box; /* Ensure padding does not cause overflow */
 }
 
 .feed-item:hover {
@@ -188,34 +240,14 @@ a:hover {
 }
 
 .feed-item strong {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #333;
 }
 
-
-textarea {
-  width: 100%; 
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1.8rem; 
-  line-height: 1.5; 
-  resize:both; 
-}
-
-
 .feed-item p {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #555;
   margin: 12px 0;
-}
-
-/* Make the ID smaller and lighter */
-.feed-item .id {
-  font-size: 0.9rem; /* Smaller font size */
-  color: #888; /* Lighter color */
-  margin-top: 5px;
 }
 
 .feed-item small {
@@ -225,67 +257,126 @@ textarea {
   text-align: right;
 }
 
-/* Post Button Styles */
-.post-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 8px 16px; /* Smaller padding to make it compact */
+/* Comment Form Styling */
+.comment-form {
+  margin-top: 15px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 8px; /* Smaller padding */
   font-size: 0.9rem; /* Smaller font size */
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+  height: 25px; /* Set a smaller height */
+}
+
+/* Comment Button Visibility */
+.comment-button {
+  display: none; /* Initially hide the button */
+  background-color: #e6eee6;
+  color: white;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
-  border: none;
+}
+
+.comment-button:hover {
+  background-color: #e7eae7;
+}
+
+.comment-button:active {
+  background-color: #ecf2ec;
+}
+
+/* Show the comment button when there's content in the textarea */
+.comment-form textarea:not(:empty) + .comment-button {
+  display: inline-block;
+}
+
+/* Comments Display Styling */
+.comments {
   margin-top: 20px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  width: auto; /* Ensure the button doesn't stretch horizontally */
-  align-self: center; /* Center the button under the text field */
 }
 
-.post-button:hover {
+.comment-item {
+  background-color: #f1f1f1;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.comment-item strong {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.comment-item p {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 8px 0;
+}
+
+.comment-item small {
+  font-size: 0.8rem;
+  color: #888;
+  display: block;
+  text-align: right;
+}
+
+/* Centering login and registration forms */
+.auth-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Form width */
+  margin: 20px auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.auth-container button {
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-container button:hover {
   background-color: #45a049;
-  transform: translateY(-3px);
 }
 
-.post-button:active {
+.auth-container button:active {
   background-color: #388e3c;
-  transform: translateY(1px);
 }
 
+.auth-container .link {
+  margin-top: 15px;
+}
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  .dashboard-container {
-    width: 100%;
-    padding: 25px;
-    margin: 20px 10px; /* Adjust the margins to ensure no cut-off */
-  }
-
-  .container {
-    width: 90%;
-    padding: 25px;
-  }
-
-  .feed-item {
-    padding: 12px;
-  }
-
-  .feed h3 {
-    font-size: 1.6rem;
-  }
-
-  /* Ensure feed items don't overflow */
-  .feed {
-    padding: 0 10px;
-    max-height: 400px; /* Adjust height for smaller screens */
-  }
-
-  /* Adjust feed item width and margins for smaller screens */
-  .feed-item {
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .post-button {
-    padding: 6px 12px;  /* Smaller padding for smaller screens */
-    font-size: 0.9rem;
-  }
-}  
