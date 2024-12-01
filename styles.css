@@ -276,8 +276,8 @@ button[type="submit"]:active {
 
 /* Comment Button Visibility */
 .comment-button {
-  display: none; /* Initially hide the button */
-  background-color: #e6eee6;
+  display: inline; /* Initially hide the button */
+  background-color: #05e505;
   color: white;
   padding: 8px 16px;
   font-size: 1rem;
@@ -294,10 +294,7 @@ button[type="submit"]:active {
   background-color: #ecf2ec;
 }
 
-/* Show the comment button when there's content in the textarea */
-.comment-form textarea:not(:empty) + .comment-button {
-  display: inline-block;
-}
+
 
 /* Comments Display Styling */
 .comments {
